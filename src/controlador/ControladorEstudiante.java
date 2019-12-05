@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 import vista.CrearEstudiante;
 import vista.Estudiantes;
@@ -16,7 +17,7 @@ import vista.General;
  *
  * @author je0azul5
  */
-public class ControladorEstudiante implements ActionListener {
+public class ControladorEstudiante implements ActionListener , Serializable{
 
     private Estudiantes estudiante;
 

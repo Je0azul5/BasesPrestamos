@@ -1,21 +1,21 @@
 
 package vo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author je0azul5
  */
-public class Multa {
+public class Multa implements Serializable{
     
-    private int id;
-    private String fehca;
+    private int id; 
     private double valor;
     private boolean blpagada;
     private int estudiante;
 
-    public Multa(int id, String fehca, double valor, boolean blpagada, int estudiante) {
+    public Multa(int id, double valor, boolean blpagada, int estudiante) {
         this.id = id;
-        this.fehca = fehca;
         this.valor = valor;
         this.blpagada = blpagada;
         this.estudiante = estudiante;
@@ -27,14 +27,6 @@ public class Multa {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getFehca() {
-        return fehca;
-    }
-
-    public void setFehca(String fehca) {
-        this.fehca = fehca;
     }
 
     public double getValor() {

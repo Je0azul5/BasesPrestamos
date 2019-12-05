@@ -1,24 +1,24 @@
 package vo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author je0azul5
  */
 
-public class Herramienta {
+public class Herramienta implements Serializable{
 
     private int id;
     private String nombre;
-    private int cantidad;
     private boolean bloqueo;
-    private int estudiante;
+    private int idEstudiante;
 
-    public Herramienta(int id, String nombre, int cantidad, boolean bloqueo, int estudiante) {
+    public Herramienta(int id, String nombre, boolean bloqueo, int idEstudiante) {
         this.id = id;
         this.nombre = nombre;
-        this.cantidad = cantidad;
         this.bloqueo = bloqueo;
-        this.estudiante = estudiante;
+        this.idEstudiante = idEstudiante;
     }
 
     public int getId() {
@@ -37,14 +37,6 @@ public class Herramienta {
         this.nombre = nombre;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
     public boolean isBloqueo() {
         return bloqueo;
     }
@@ -53,15 +45,18 @@ public class Herramienta {
         this.bloqueo = bloqueo;
     }
 
-    public int getEstudiante() {
-        return estudiante;
+    public int getIdEstudiante() {
+        return idEstudiante;
     }
 
-    public void setEstudiante(int estudiante) {
-        this.estudiante = estudiante;
+    public void setIdEstudiante(int idEstudiante) {
+        this.idEstudiante = idEstudiante;
     }
 
+    @Override
+    public String toString() {
+        return "Herramienta{" + "id=" + id + ", nombre=" + nombre + ", bloqueo=" + bloqueo + ", idEstudiante=" + idEstudiante + "}\n";
+    }
     
-    
-    
+
 }

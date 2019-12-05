@@ -1,11 +1,13 @@
 
 package vo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author je0azul5
  */
-public class Estudiante {
+public class Estudiante implements Serializable{
     
     private int id;
     private String nombre;
@@ -89,6 +91,11 @@ public class Estudiante {
 
     public void setBloqueo(boolean bloqueo) {
         this.bloqueo = bloqueo;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudiante{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", carrera=" + carrera + ", semestre=" + semestre + ", telefono=" + telefono + ", bloqueo=" + bloqueo + '}';
     }
     
     

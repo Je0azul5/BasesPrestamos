@@ -7,15 +7,17 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 import vista.CrearHerramienta;
+import vista.General;
 import vista.Herramientas;
 
 /**
  *
  * @author je0azul5
  */
-public class ControladorHerramienta implements ActionListener {
+public class ControladorHerramienta implements ActionListener , Serializable{
 
     private Herramientas g;
 
@@ -33,6 +35,8 @@ public class ControladorHerramienta implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equalsIgnoreCase("volver")) {
           //  ControladorDaoHeramienta o = new ControladorDaoHeramienta(new CrearHerramienta());
+            ControladorGeneral o = new ControladorGeneral(new General());
+            
             g.dispose();
         }
         if (e.getActionCommand().equalsIgnoreCase("crear")) {

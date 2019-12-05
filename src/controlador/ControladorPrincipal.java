@@ -6,12 +6,18 @@
 package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import vista.*;
+import Dao.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import vo.Administrador;
 /**
  *
  * @author je0azul5
  */
-public class ControladorPrincipal implements ActionListener{
+public class ControladorPrincipal implements ActionListener, Serializable{
     
     private Inicio in;
 
@@ -25,11 +31,30 @@ public class ControladorPrincipal implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
+            
+        DaoIn d = new DaoIn();
         
         if (e.getActionCommand().equalsIgnoreCase("entrar")) {
-            ControladorGeneral g = new ControladorGeneral(new General());
+            Administrador f = null;
+            try {
+                f = d.buscar(in.jTextField1.getText(), in.jPasswordField1.getText());
+            } catch (SQLException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
+            if (f!=null) {
+                
+            ControladorGeneral g = new ControladorGeneral(new General());
+                try {
+                    d.Saludo();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
             in.dispose();
+            }else{
+                in.jTextField1.setText("");
+                in.jPasswordField1.setText("");
+            }
         }
     
     }
